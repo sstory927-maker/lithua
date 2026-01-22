@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boostora — Facebook Growth Agency</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function selectPack(pack, price) {
+      document.getElementById('package').value = pack;
+      document.getElementById('amount').value = price + ' টাকা';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function confirmPayment() {
+      document.getElementById('confirmMsg').style.display = 'block';
+    }
+
+    function applyCoupon() {
+      var amountField = document.getElementById('amount');
+      var coupon = document.getElementById('coupon').value;
+      if (coupon === 'BOOST20') {
+        var amount = parseInt(amountField.value);
+        var discount = amount * 0.2;
+        var finalAmount = amount - discount;
+        amountField.value = finalAmount + ' টাকা';
+        alert('Coupon Applied Successfully!');
+      } else {
+        alert('Invalid Coupon Code');
+      }
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/120x120.png?text=BOOSTORA" alt="Boostora Logo" class="logo" />
+  <h1>Boostora</h1>
+  <p>Grow Faster • Look Bigger • Get Trusted</p>
+  <p class="contact">📞 Contact: <strong>0186873982</strong> | WhatsApp Available</p>
+</header>
+
+<div class="container">
+  <div class="card business">
+    <h2>আমাদের সার্ভিস সম্পর্কে</h2>
+    <p>
+      আমরা <strong>Real & Safe Facebook Followers</strong> সরবরাহ করি।
+      আপনার Business Page, Personal Profile অথবা Brand Page-এর Growth এর জন্য নির্ভরযোগ্য সার্ভিস।
+    </p>
+    <p class="trust">✅ No Password Needed | ✅ Safe Method | ✅ Customer Support</p>
+  </div>
+
+  <div class="card">
+    <h2 class="text-center">Follower Packages</h2>
+    <div class="pricing">
+      <div class="price-box most-popular">
+        <h3>10K Followers</h3>
+        <div class="price">৳ 1000</div>
+        <p>Instant Start • 24–48 Hours Delivery</p>
+        <p>Business Page & Personal Profile</p>
+        <button onclick="selectPack('10K Followers', '1000')">অর্ডার করুন</button>
+      </div>
+      <div class="price-box">
+        <h3>20K Followers</h3>
+        <div class="price">৳ 1900</div>
+        <p>24–72 Hours Delivery</p>
+        <button onclick="selectPack('20K Followers', '1900')">অর্ডার করুন</button>
+      </div>
+      <div class="price-box">
+        <h3>50K Followers</h3>
+        <div class="price">৳ 4500</div>
+        <p>2–4 Days Delivery</p>
+        <button onclick="selectPack('50K Followers', '4500')">অর্ডার করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card payment">
+    <h2>Payment Information</h2>
+    <p class="payment-info">🔴 bKash (Personal): <strong>01863873082</strong></p>
+    <p class="payment-info">🔴 Nagad (Personal): <strong>01863873082</strong></p>
+    <p class="payment-instruction">Payment করার পর WhatsApp এ Screenshot পাঠালে Order দ্রুত প্রসেস হবে</p>
+    <input type="text" id="package" placeholder="Selected Package" readonly />
+    <input type="text" id="amount" placeholder="Amount (BDT)" readonly />
+    <input type="text" id="coupon" placeholder="Coupon Code (Optional)" />
+    <button onclick="applyCoupon()" class="coupon-btn">Apply Coupon</button>
+
+    <select>
+      <option>Payment Method সিলেক্ট করুন</option>
+      <option>bKash</option>
+      <option>Nagad</option>
+    </select>
+
+    <input type="text" placeholder="আপনার Facebook Page / Profile Link" />
+    <input type="text" placeholder="Transaction ID (TrxID)" />
+
+    <button onclick="confirmPayment()">Payment Confirm</button>
+
+    <div class="confirm" id="confirmMsg">
+      ✅ Payment Successful! আপনার অর্ডার কনফার্ম হয়েছে।
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Boostora — Facebook Growth Agency | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
